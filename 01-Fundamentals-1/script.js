@@ -1,3 +1,5 @@
+/*----------------------------------------------------------------------------------*/
+
 let js = 'amazing';
 if (js === 'amazing') alert("JavaScript is fun!");
 
@@ -34,6 +36,8 @@ let myCurrentJob = "Engineer";
 let job1 = "Tutor";
 let job2 = "Engineer";
 
+/*----------------------------------------------------------------------------------*/
+
 // Data Types
 // Number: decimals/integers
 // String: sequence of characters
@@ -45,3 +49,38 @@ let job2 = "Engineer";
 //
 // Dynamic typing: data types are determined automatically. You
 // dob't have to define them immediately.
+
+console.log(typeof true);
+console.log(typeof 23);
+console.log(typeof "Jonas");
+
+// We may also change the type of a variable too!
+let javascriptIsFun = true;
+console.log(javascriptIsFun);
+
+javascriptIsFun = "YES!"
+console.log(javascriptIsFun);
+
+// Undefined is an empty value, or a variable that's not assigned a value.
+let year;
+console.log(year);
+console.log(typeof year);
+
+// Null just means both the value and the variable are undefined.
+console.log(typeof null);
+// Surprisingly, it returns 'object' in the console, which is 
+// not right.
+
+/*----------------------------------------------------------------------------------*/
+
+/* The 'let' keyword is for variables that can change types or values later.
+You can 'mutate' variables using the 'let' keyword. If the variable may change at
+some point, then you can use 'let'.
+
+The 'const' keyword is for variables that WON'T ever reassign in the future in 
+any way. In other words, it creates an immutable object. So we can't even declare
+it as an empty variable either. Use it by default.
+
+The 'var' keyword allows for both mutable and changeable variables. It's common but should
+actually be avoided at all costs.
+*/
