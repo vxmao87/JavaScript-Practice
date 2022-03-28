@@ -84,3 +84,10 @@ it as an empty variable either. Use it by default.
 The 'var' keyword allows for both mutable and changeable variables. It's common but should
 actually be avoided at all costs.
 */
+
+/*----------------------------------------------------------------------------------*/
+
+const now = 2037;
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
+console.log(ageJonas * 2, ageSarah / 2, 2 ** 3); // 2 ** 3 = 2^3 = 2 * 2 * 2
