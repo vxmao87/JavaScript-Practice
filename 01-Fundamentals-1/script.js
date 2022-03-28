@@ -106,4 +106,20 @@ Most cases need parenthesis to force something to happen.
 
 /*Strings and Template Literals
 
+You can use template literals to save yourself the trouble of using spaces and + signs too much.
+Both jonas and jonasNew produce the same result.
+
+You can also use template literals to create multiple lines without having to type \n\ all the time.
+
 */
+
+const jonasJob = "engineer"
+const jonas = "I'm " + firstName + ", a " + ageJonas + " year old " + jonasJob + "!";
+const jonasNew = `I'm ${firstName}, a ${ageJonas} year old ${jonasJob}!`;
+console.log(jonas);
+console.log(jonasNew);
+
+console.log('String with \n\ multiple \n\ lines.');
+console.log(`String with
+multiple
+lines`);

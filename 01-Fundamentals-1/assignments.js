@@ -35,3 +35,24 @@ const description1 =
   population + " million people speak " + 
   language + ".";
 console.log(description1);
+
+// Strings and Template Literals
+const description2 = `${country} is in ${continent} and its ${population} million people speak ${language}.`;
+console.log(description2)
+
+// Taking Decisions: if/else statements
+function isPopulationAboveAverage(countryPopulation) {
+  if (countryPopulation > 33) {
+    console.log(`${country}'s population is above average.`);
+  } else {
+    const populationBelow = 33 - countryPopulation;
+    console.log(`${country}'s population is ${33 - populationBelow} below average.`);
+  }
+}
+
+isPopulationAboveAverage(population);
+population = 13;
+isPopulationAboveAverage(population);
+population = 130;
+isPopulationAboveAverage(population);
+population = 329;
