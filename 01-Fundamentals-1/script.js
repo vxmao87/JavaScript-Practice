@@ -91,3 +91,19 @@ const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 console.log(ageJonas * 2, ageSarah / 2, 2 ** 3); // 2 ** 3 = 2^3 = 2 * 2 * 2
+
+/*----------------------------------------------------------------------------------*/
+
+/*Order Precedence
+
+Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+Most cases need parenthesis to force something to happen.
+
+*/
+
+/*----------------------------------------------------------------------------------*/
+
+/*Strings and Template Literals
+
+*/
