@@ -7,20 +7,12 @@ function checkBMI(mass1, height1, mass2, height2) {
   return {bmi1, bmi2, isBiggerBMI};
 }
 
-// Test Data #1
-const markMass1 = 78, markHeight1 = 1.69;
-const johnMass1 = 92, johnHeight1 = 1.95;
+let markHigherBMI1New = checkBMI(markMass1, markHeight1, johnMass1, johnHeight1);
 
-// Test Data #2
-const markMass2 = 95, markHeight2 = 1.88;
-const johnMass2 = 85, johnHeight2 = 1.76;
+let markHigherBMI2New = checkBMI(markMass2, markHeight2, johnMass2, johnHeight2);
 
-const markHigherBMI1 = checkBMI(markMass1, markHeight1, johnMass1, johnHeight1);
-
-const markHigherBMI2 = checkBMI(markMass2, markHeight2, johnMass2, johnHeight2);
-
-if (markHigherBMI1.isBiggerBMI) {
-  console.log(`Mark's BMI (${markHigherBMI1.bmi1}) is higher than John's (${markHigherBMI1.bmi2})!`);
+if (markHigherBMI1New.isBiggerBMI) {
+  console.log(`Mark's BMI (${markHigherBMI1New.bmi1}) is higher than John's (${markHigherBMI1New.bmi2})!`);
 } else {
-  console.log(`John's BMI (${markHigherBMI1.bmi1}) is higher than Mark's (${markHigherBMI1.bmi2})!`);
+  console.log(`John's BMI (${markHigherBMI1New.bmi1}) is higher than Mark's (${markHigherBMI1New.bmi2})!`);
 }

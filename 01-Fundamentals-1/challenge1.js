@@ -14,8 +14,8 @@ const johnMass1 = 92, johnHeight1 = 1.95;
 const markMass2 = 95, markHeight2 = 1.88;
 const johnMass2 = 85, johnHeight2 = 1.76;
 
-const markHigherBMI1 = checkBMI(markMass1, markHeight1, johnMass1, johnHeight1);
+let markHigherBMI1 = checkBMI(markMass1, markHeight1, johnMass1, johnHeight1);
 
-const markHigherBMI2 = checkBMI(markMass2, markHeight2, johnMass2, johnHeight2);
+let markHigherBMI2 = checkBMI(markMass2, markHeight2, johnMass2, johnHeight2);
 
 console.log(markHigherBMI1, markHigherBMI2);
