@@ -231,23 +231,59 @@ The ! operator will hold a higher precedence over && and ||.
 
 */
 
-const hasDriversLicense = true;
-const hasGoodVision = true;
+// const hasDriversLicense = true;
+// const hasGoodVision = true;
 
-console.log(hasDriversLicense && hasGoodVision);
-console.log(hasDriversLicense || hasGoodVision);
-console.log(!hasDriversLicense);
+// console.log(hasDriversLicense && hasGoodVision);
+// console.log(hasDriversLicense || hasGoodVision);
+// console.log(!hasDriversLicense);
 
-// if (hasDriversLicense && hasGoodVision) {
-//   console.log("Kevin is able to drive!");
+// // if (hasDriversLicense && hasGoodVision) {
+// //   console.log("Kevin is able to drive!");
+// // } else {
+// //   console.log("Someone else should drive...");
+// // }
+
+// const isTired = true;
+
+// if (hasDriversLicense && hasGoodVision && !isTired) {
+//   console.log("Kevin should DEFINITELY drive!!!");
 // } else {
-//   console.log("Someone else should drive...");
+//   console.log("Someone else PLEASE drive!");
 // }
 
-const isTired = true;
+/*----------------------------------------------------------------------------------*/
 
-if (hasDriversLicense && hasGoodVision && !isTired) {
-  console.log("Kevin should DEFINITELY drive!!!");
-} else {
-  console.log("Someone else PLEASE drive!");
+/*
+The 'switch' Statement
+
+Using 'switch' automatically uses the strict logical operators. You can stack multiple cases
+on top of each other if they will urn the same code as shown below.
+
+The 'default' case is like the 'else' statement in an if-else statement.
+
+*/
+
+const day = 'monday';
+
+switch(day) {
+  case 'monday':
+  case 'friday':
+    console.log("Plan course structure");
+    console.log("Go to coding meetup");
+    break;
+  case 'tuesday':
+  case 'thursday':
+    console.log("Prepare videos")
+    break;
+  case 'wednesday':
+    console.log("Do exercise");
+    break;
+  case 'saturday':
+  case 'sunday':
+    console.log("DEnjoy the weekend!");
+    break;
+  default:
+    console.log("Not a valid day");
+    break;
 }
