@@ -94,7 +94,9 @@ actually be avoided at all costs.
 
 /*----------------------------------------------------------------------------------*/
 
-/*Order Precedence
+/*
+
+Order Precedence
 
 Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
@@ -158,6 +160,7 @@ Type coercion is the act of converting a value from one type to another.
 /*----------------------------------------------------------------------------------*/
 
 /* 
+
 Truthy and Falsy Values
 
 There are 5 kinds of falsy values: 0, '', undefined, null, NaN.
@@ -187,6 +190,7 @@ Any non-zero Number and any valid String are truthy values.
 /*----------------------------------------------------------------------------------*/
 
 /*
+
 Equality Operators: == and ===
 
 === is a comparison operator. = is an assignment operator.
@@ -217,6 +221,7 @@ Following the same logic, use !== over != to strictly apply the operator.
 /*----------------------------------------------------------------------------------*/
 
 /*
+
 Logical Operators
 
 and: &&
@@ -255,6 +260,7 @@ The ! operator will hold a higher precedence over && and ||.
 /*----------------------------------------------------------------------------------*/
 
 /*
+
 The 'switch' Statement
 
 Using 'switch' automatically uses the strict logical operators. You can stack multiple cases
@@ -262,28 +268,106 @@ on top of each other if they will urn the same code as shown below.
 
 The 'default' case is like the 'else' statement in an if-else statement.
 
+This statement is being used less often, however.
+
 */
 
-const day = 'monday';
+// const day = 'monday';
 
-switch(day) {
-  case 'monday':
-  case 'friday':
-    console.log("Plan course structure");
-    console.log("Go to coding meetup");
-    break;
-  case 'tuesday':
-  case 'thursday':
-    console.log("Prepare videos")
-    break;
-  case 'wednesday':
-    console.log("Do exercise");
-    break;
-  case 'saturday':
-  case 'sunday':
-    console.log("DEnjoy the weekend!");
-    break;
-  default:
-    console.log("Not a valid day");
-    break;
-}
+// switch(day) {
+//   case 'monday':
+//   case 'friday':
+//     console.log("Plan course structure");
+//     console.log("Go to coding meetup");
+//     break;
+//   case 'tuesday':
+//   case 'thursday':
+//     console.log("Prepare videos")
+//     break;
+//   case 'wednesday':
+//     console.log("Do exercise");
+//     break;
+//   case 'saturday':
+//   case 'sunday':
+//     console.log("DEnjoy the weekend!");
+//     break;
+//   default:
+//     console.log("Not a valid day");
+//     break;
+// }
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Statements and Expressions
+
+Expressions include '3 + 4', 1911, true && false && !false, and others.
+  Expressions produce values, but statements do not.
+Statements are larger pieces of code and doesn't produce values themselves.
+  They can include if-else statements and also while loops. They're like sentences.
+
+Template literals can only take expressions, NOT statements.
+
+*/
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+The Conditional (Ternary) Operator
+
+The format is:
+<if statement> ? <executed if commands> : <executed else commands>
+
+Given this format, the ternary operator is an expression! You can throw statements like these
+into a template literal as well!
+
+These are NOT replacements to if-else statements because if-else statements have more
+complex uses than ternary operators can handle.
+
+*/
+
+// const age = 23;
+// age >= 18 ? console.log("I like to drink wine :P") : console.log("I like to drink water");
+
+// console.log(`I like to drink ${age >= 18 ? "wine :P" : "water >_<"}`);
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+JavaSCript Releases: ES5, ES6+ ESNext
+
+In 1995, Brendan Eich created Mocha, the first version of JavaScript in just 10 days!
+
+In 1996, the code was renamed to JavaScript. But it has nothing to do with Java...
+this same year, Microsoft launches IE, copying JavaScript from Netscape and calling
+it JScript.
+
+In 1997, ECMA released ECMASCript1 (ES1), the first official standard standard for
+JavaScript.
+
+In 2009, ES5 was released with many new features.
+
+In 2015, ES6 was launched in June. It has the hugest number of updates ever to the language. ECMAScript changed to an annual release cycle starting from 2015 to ship
+less features per update.
+
+These updates will release until the end of time, of course.
+
+All of these versions are backwards compatible!!! There are only things added,
+never things deleted.
+
+However, there is NO forward compatibility because current browsers wouldn't
+understand code from the future. Hence, we need to differentiate between the
+development and production phases.
+
+In development, you ask the users to use the latest version available. In
+production, we make new products and push the changes; more specifically, we
+will use Babel to transpile and polyfilling our code.
+
+Nowadays, ES5 is safe to use down to 2011. And ES2015 to ES2020 are well-supported
+in all modern browsers but NOT older ones, and you can use most features in
+production with transpiling and polyfilling.
+
+*/
