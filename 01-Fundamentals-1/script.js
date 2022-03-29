@@ -198,18 +198,56 @@ The value 18 === '18' will be 'false' because type coercion is not applied.
 Try to avoid == and opt for === as much as you can! You can just manually
 convert your values later.
 
+Following the same logic, use !== over != to strictly apply the operator.
+
 */
 
-const age = 18;
-if (age === 18) console.log("You just became an adult! (strict)");
-if (age == 18) console.log("You just became an adult! (loose)");
+// const age = 18;
+// if (age === 18) console.log("You just became an adult! (strict)");
+// if (age == 18) console.log("You just became an adult! (loose)");
 
-const favorite = Number(prompt("What's your favorite number?"));
-console.log(favorite);
-console.log(typeof favorite);
+// const favorite = Number(prompt("What's your favorite number?"));
+// console.log(favorite);
+// console.log(typeof favorite);
 
-if (favorite === 23) {
-  console.log("Cool! 23 is an amazing number!");
-}
+// if (favorite === 23) {
+//   console.log("Cool! 23 is an amazing number!");
+// }
 
 /*----------------------------------------------------------------------------------*/
+
+/*
+Logical Operators
+
+and: &&
+or: ||
+not: ! (This has to be right before the condition you are testing!)
+
+All statements inside a statement connected by && must be true for the whole
+statement ot be true! But only one of those statements connected by || needs to be
+true for the whole statement to be true.
+
+The ! operator will hold a higher precedence over && and ||.
+
+*/
+
+const hasDriversLicense = true;
+const hasGoodVision = true;
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+// if (hasDriversLicense && hasGoodVision) {
+//   console.log("Kevin is able to drive!");
+// } else {
+//   console.log("Someone else should drive...");
+// }
+
+const isTired = true;
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log("Kevin should DEFINITELY drive!!!");
+} else {
+  console.log("Someone else PLEASE drive!");
+}

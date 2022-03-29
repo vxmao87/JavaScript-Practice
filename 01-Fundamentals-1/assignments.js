@@ -11,7 +11,7 @@
 
 // Data Types
 // let isIsland = false;
-let language;
+// let language;
 
 // console.log(typeof isIsland);
 // console.log(typeof population);
@@ -90,20 +90,31 @@ let language;
 
 /*----------------------------------------------------------------------------------*/
 
-// Equality Operators: == vs ===
-const numNeighbors = Number(prompt("How many neighbor countries does your country have?"));
+// // Equality Operators: == vs ===
+// const numNeighbors = Number(prompt("How many neighbor countries does your country have?"));
 
-if (numNeighbors === 1) {
-  console.log("Only 1 neighbor!");
-} else if (numNeighbors > 1) {
-  console.log("More than 1 border");
-} else {
-  console.log("No borders");
-}
+// if (numNeighbors === 1) {
+//   console.log("Only 1 neighbor!");
+// } else if (numNeighbors > 1) {
+//   console.log("More than 1 border");
+// } else {
+//   console.log("No borders");
+// }
 
-/*
-We should use === over == in this situation since we are using specifically numbers
-inside this problem.
-*/
+// /*
+// We should use === over == in this situation since we are using specifically numbers
+// inside this problem.
+// */
 
 /*----------------------------------------------------------------------------------*/
+
+// Logical Operators
+let country = "United States";
+let language = "English";
+let population = 49;
+let isIsland = false;
+if ((language === "English") && (population < 50) && (!isIsland)) {
+  console.log(`You should live in ${country}!`);
+} else {
+  console.log(`${country} is not your ideal country.`);
+}
