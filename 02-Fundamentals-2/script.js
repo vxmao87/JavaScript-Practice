@@ -26,7 +26,7 @@ Functions
 
 They are stacks of code that can be used over and over again, perfect for running 
 test cases in particular! Functions can come with values called parameters. You can call,
-run or invoke a function, all mean the same thing.
+run, execute or invoke a function, all mean the same thing.
 
 Functions can also return values!
 
@@ -46,3 +46,71 @@ function fruitProcessor(apples, oranges) {
 }
 
 console.log(fruitProcessor(5, 0));
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Function Declarations VS Expressions
+
+The last lecture showed up "function declarations," which defines and declares 
+a function in particular. But a "function expression" does not have a name, and
+is instead defined inside a variable for example.
+
+Parameters are placeholders in the function, and arguments are the actual values
+that will be used iin the function.
+
+*/
+
+function calcAge(birthYear) {
+  return 2037 - birthYear;
+}
+
+const age1 = calcAge(1991);
+console.log(age1);
+
+const calcAge2 = function (birthYear) {
+  return 2037 - birthYear;
+}
+
+const age2 = calcAge(1991);
+
+console.log(age1, age2);
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Arrow Functions
+
+These methods are a very, very quick way to write a function that will immediately
+return something given a couple parameters. They also need to be stored as a 
+variable for it to work.
+
+It's a special form of a function expression. The return happens implicitly!!!
+
+But arrow functions shouldn't probably be too complex. They don't get a 'this'
+keyword, so we'll talk about this later.
+
+*/
+
+const calcAge3 = birthYear => 2037 - birthYear;
+const age3 = calcAge3(1991);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2037 - birthYear;
+  const retirement = 65 - age;
+  return `${firstName} retires in ${retirement} years.`;
+};
+
+console.log(yearsUntilRetirement(1991, "Jonas"));
+console.log(yearsUntilRetirement(1980, "Bob"));
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Functions Calling Other Functions
+
+*/
