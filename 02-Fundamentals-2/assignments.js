@@ -50,31 +50,57 @@ function percentageOfWorld1(population) {
 
 /*----------------------------------------------------------------------------------*/
 
-// Introduction to Arrays
-const populations = [330, 1402, 126, 24];
-console.log(populations.length === 4);
+// // Introduction to Arrays
+// const populations = [330, 1402, 126, 24];
+// console.log(populations.length === 4);
 
-const percentages = [];
-for (let pop in populations) {
-  percentages.push(percentageOfWorld1(populations[pop]));
-}
+// const percentages = [];
+// for (let pop in populations) {
+//   percentages.push(percentageOfWorld1(populations[pop]));
+// }
 
-console.log(percentages);
+// console.log(percentages);
 
 /*----------------------------------------------------------------------------------*/
 
-// Basic Array Operations (Methods)
+// // Basic Array Operations (Methods)
 
-let neighbors = ['Vietnam', 'Mongolia', 'India'];
-neighbors.push('Utopia');
-console.log(neighbors);
-neighbors.pop();
-console.log(neighbors);
+// let neighbors = ['Vietnam', 'Mongolia', 'India'];
+// neighbors.push('Utopia');
+// console.log(neighbors);
+// neighbors.pop();
+// console.log(neighbors);
 
-if (neighbors.includes("Germany")) {
-  console.log("Probably not a central European country :D");
-}
+// if (neighbors.includes("Germany")) {
+//   console.log("Probably not a central European country :D");
+// }
 
-const index1 = neighbors.indexOf("India");
-neighbors[index1] = "Korea";
-console.log(neighbors);
+// const index1 = neighbors.indexOf("India");
+// neighbors[index1] = "Korea";
+// console.log(neighbors);
+
+/*----------------------------------------------------------------------------------*/
+
+// Introduction to Objects
+
+const myCountry = {
+  country: "United States",
+  capital: "Washington D.C.",
+  language: "English",
+  population: 330,
+  neighbors: ['Mexico', 'Canada'],
+};
+console.log(myCountry);
+
+/*----------------------------------------------------------------------------------*/
+
+// Dot vs. Bracket Notation
+
+const info = `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}. ${myCountry.neighbors[1]} is one of the countries that borders it.`;
+console.log(info);
+
+myCountry.population -= 2;
+console.log(myCountry.population);
+
+myCountry["population"] += 2;
+console.log(myCountry["population"]);
