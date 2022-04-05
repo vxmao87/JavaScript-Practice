@@ -32,20 +32,20 @@ Functions can also return values!
 
 */
 
-function logger() {
-  console.log("My name is Jonas!");
-}
+// function logger() {
+//   console.log("My name is Jonas!");
+// }
 
-logger();
-logger();
-logger();
+// logger();
+// logger();
+// logger();
 
-function fruitProcessor(apples, oranges) {
-  console.log(apples, oranges);
-  return `Juice with ${apples} apples and ${oranges} oranges.`;;
-}
+// function fruitProcessor(apples, oranges) {
+//   console.log(apples, oranges);
+//   return `Juice with ${apples} apples and ${oranges} oranges.`;;
+// }
 
-console.log(fruitProcessor(5, 0));
+// console.log(fruitProcessor(5, 0));
 
 /*----------------------------------------------------------------------------------*/
 
@@ -62,20 +62,20 @@ that will be used iin the function.
 
 */
 
-function calcAge(birthYear) {
-  return 2037 - birthYear;
-}
+// function calcAge(birthYear) {
+//   return 2037 - birthYear;
+// }
 
-const age1 = calcAge(1991);
-console.log(age1);
+// const age1 = calcAge(1991);
+// console.log(age1);
 
-const calcAge2 = function (birthYear) {
-  return 2037 - birthYear;
-}
+// const calcAge2 = function (birthYear) {
+//   return 2037 - birthYear;
+// }
 
-const age2 = calcAge(1991);
+// const age2 = calcAge(1991);
 
-console.log(age1, age2);
+// console.log(age1, age2);
 
 /*----------------------------------------------------------------------------------*/
 
@@ -94,18 +94,18 @@ keyword, so we'll talk about this later.
 
 */
 
-const calcAge3 = birthYear => 2037 - birthYear;
-const age3 = calcAge3(1991);
-console.log(age3);
+// const calcAge3 = birthYear => 2037 - birthYear;
+// const age3 = calcAge3(1991);
+// console.log(age3);
 
-const yearsUntilRetirement = (birthYear, firstName) => {
-  const age = 2037 - birthYear;
-  const retirement = 65 - age;
-  return `${firstName} retires in ${retirement} years.`;
-};
+// const yearsUntilRetirement = (birthYear, firstName) => {
+//   const age = 2037 - birthYear;
+//   const retirement = 65 - age;
+//   return `${firstName} retires in ${retirement} years.`;
+// };
 
-console.log(yearsUntilRetirement(1991, "Jonas"));
-console.log(yearsUntilRetirement(1980, "Bob"));
+// console.log(yearsUntilRetirement(1991, "Jonas"));
+// console.log(yearsUntilRetirement(1980, "Bob"));
 
 /*----------------------------------------------------------------------------------*/
 
@@ -114,3 +114,28 @@ console.log(yearsUntilRetirement(1980, "Bob"));
 Functions Calling Other Functions
 
 */
+
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
+
+// function fruitProcessor(apples, oranges) {
+//   const applePieces = cutFruitPieces(apples);
+//   const orangePieces = cutFruitPieces(oranges);
+
+//   return `Juice with ${applePieces} apples and ${orangePieces} oranges.`;
+// }
+
+// console.log(fruitProcessor(2,3));
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Introduction to Arrays
+
+Arrays hold multiple values. JavaScript arrays can somehow hold variables of 
+different types. Other arrays can also go inside arrays.
+
+*/
+

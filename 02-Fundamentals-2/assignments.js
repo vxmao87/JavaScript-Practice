@@ -7,6 +7,8 @@
 // console.log(describeCountry("China", 1402, "Beijing"));
 // console.log(describeCountry("Japan", 126, "Tokyo"));
 
+/*----------------------------------------------------------------------------------*/
+
 // // Function Declarations VS Expressions
 function percentageOfWorld1(population) {
   return (population / 7900) * 100;
@@ -25,6 +27,8 @@ function percentageOfWorld1(population) {
 // const percent3 = percentageOfWorld2(126);
 // console.log(percent1, percent2, percent3);
 
+/*----------------------------------------------------------------------------------*/
+
 // // Arrow Functions
 // const percentageOfWorld3 = population => (population / 7900) * 100;
 // const percent12 = percentageOfWorld3(330);
@@ -33,11 +37,26 @@ function percentageOfWorld1(population) {
 
 // console.log(percent12, percent22, percent32);
 
-// Functions Calling Other Functions
-const describePopulation = (country, population) => `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world.`;
+/*----------------------------------------------------------------------------------*/
 
-const country1 = describePopulation("The United States", 330);
-const country2 = describePopulation("China", 1402);
-const country3 = describePopulation("Japan", 126);
+// // Functions Calling Other Functions
+// const describePopulation = (country, population) => `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world.`;
 
-console.log(country1, country2, country3);
+// const country1 = describePopulation("The United States", 330);
+// const country2 = describePopulation("China", 1402);
+// const country3 = describePopulation("Japan", 126);
+
+// console.log(country1, country2, country3);
+
+/*----------------------------------------------------------------------------------*/
+
+// Introduction to Arrays
+const populations = [330, 1402, 126, 24];
+console.log(populations.length === 4);
+
+const percentages = [];
+for (let pop in populations) {
+  percentages.push(percentageOfWorld1(populations[pop]));
+}
+
+console.log(percentages);
