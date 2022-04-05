@@ -136,6 +136,45 @@ Introduction to Arrays
 
 Arrays hold multiple values. JavaScript arrays can somehow hold variables of 
 different types. Other arrays can also go inside arrays.
+Array values MUST be expressions, not statements.
 
 */
 
+const calcAge = function (birthYear) {
+  return 2037 - birthYear;
+}
+
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const ages = [];
+for (let year in years) {
+  ages.push(calcAge(years[year]));
+}
+
+console.log(ages);
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Basic Array Operations (Methods)
+
+Arrays.push(value)
+This adds the value onto the end of an array. It returns the length of the array.
+
+Arrays.unshift(value)
+This adds the value onto the beginning of the array. t returns the length of the array.
+
+Arrays.pop()
+This removes the last element of the array. The popped value is also returned.
+
+Arrays.shift()
+This removes the first element of the array. The popped value is also returned.
+
+Arrays.indexOf(value)
+This returns the index where the given value is located.
+
+Arrays.includes(value)
+This returns true if the value is in the array, false otherwise.
+
+*/

@@ -60,3 +60,21 @@ for (let pop in populations) {
 }
 
 console.log(percentages);
+
+/*----------------------------------------------------------------------------------*/
+
+// Basic Array Operations (Methods)
+
+let neighbors = ['Vietnam', 'Mongolia', 'India'];
+neighbors.push('Utopia');
+console.log(neighbors);
+neighbors.pop();
+console.log(neighbors);
+
+if (neighbors.includes("Germany")) {
+  console.log("Probably not a central European country :D");
+}
+
+const index1 = neighbors.indexOf("India");
+neighbors[index1] = "Korea";
+console.log(neighbors);
