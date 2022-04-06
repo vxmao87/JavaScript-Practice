@@ -140,18 +140,18 @@ Array values MUST be expressions, not statements.
 
 */
 
-const calcAge = function (birthYear) {
-  return 2037 - birthYear;
-}
+// const calcAge = function (birthYear) {
+//   return 2037 - birthYear;
+// }
 
-const years = [1990, 1967, 2002, 2010, 2018];
+// const years = [1990, 1967, 2002, 2010, 2018];
 
-const ages = [];
-for (let year in years) {
-  ages.push(calcAge(years[year]));
-}
+// const ages = [];
+// for (let year in years) {
+//   ages.push(calcAge(years[year]));
+// }
 
-console.log(ages);
+// console.log(ages);
 
 /*----------------------------------------------------------------------------------*/
 
@@ -255,18 +255,121 @@ that only expressions work for Object values.
 
 */
 
-const jonas = {
-  firstName: 'Jonas',
-  lastName: 'Schneider',
-  birthYear: 1991,
-  job: 'teacher',
-  friends: ['Michael', 'Peter', 'Steven'],
-  // calcAge: function (birthYear) {
-  //   return 2037 - birthYear;
-  // },
-  calcAge: function () {
-    return 2037 - this.birthYear;
-  }
-};
+// const jonas = {
+//   firstName: 'Jonas',
+//   lastName: 'Schneider',
+//   birthYear: 1991,
+//   job: 'teacher',
+//   friends: ['Michael', 'Peter', 'Steven'],
+//   // calcAge: function (birthYear) {
+//   //   return 2037 - birthYear;
+//   // },
+//   calcAge: function () {
+//     return 2037 - this.birthYear;
+//   }
+// };
 
-console.log(jonas.calcAge());
+// console.log(jonas.calcAge());
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Iterations: The for Loop
+
+Most loops hold the following format:
+
+for (let rep = 1; rep <= 10; rep++)
+
+The loop will keep running while the conditions listed are true.
+
+*/
+
+// for (let rep = 5; rep <= 18; rep++) {
+//   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+// }
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Looping Arrays, Breaking and Continuing
+
+continue: to exit the current iteration of loop and continue to the next one
+
+break: completely terminate the whole loop we are in
+
+*/
+
+// const jonas = [
+//   'Jonas',
+//   'Schneider',
+//   2037 - 1991,
+//   'teacher',
+//   ['Michael', 'June', 'Alex'],
+//   true
+// ];
+
+// const types = [];
+
+// for (let i = 0; i < jonas.length; i++) {
+//   // Exit the current iteration, go to the next one
+//   if (typeof jonas[i] !== 'string') continue;
+//   console.log(jonas[i], typeof jonas[i]);
+// }
+
+// console.log("--- BREAK WITH NUMBERS ---")
+// for (let i = 0; i < jonas.length; i++) {
+//   // Exit the whole loop if the condition is met
+//   if (typeof jonas[i] === 'number') break;
+//   console.log(jonas[i], typeof jonas[i]);
+// }
+
+// console.log(types);
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Looping Backwards and Loops in Loops
+
+You can loop backwards and have loops in loops (nested loops).
+
+*/
+
+// const jonas = [
+//   'Jonas',
+//   'Schneider',
+//   2037 - 1991,
+//   'teacher',
+//   ['Michael', 'June', 'Alex'],
+//   true
+// ];
+
+// for (let i = jonas.length - 1; i >= 0; i--) {
+//   console.log(i, jonas[i]);
+// }
+
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`-------- Starting exercise ${exercise}`);
+
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+//   }
+// }
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+The while loop
+
+*/
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//   console.log(`You rolled a ${dice}`);
+//   dice = Math.trunc(Math.random() * 6) + 1;
+//   // if (dice === 6) console.log("Loop is about to end...");
+// }

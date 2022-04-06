@@ -10,9 +10,9 @@
 /*----------------------------------------------------------------------------------*/
 
 // // Function Declarations VS Expressions
-function percentageOfWorld1(population) {
-  return (population / 7900) * 100;
-}
+// function percentageOfWorld1(population) {
+//   return (population / 7900) * 100;
+// }
 
 // console.log(percentageOfWorld1(330));
 // console.log(percentageOfWorld1(1402));
@@ -109,20 +109,82 @@ function percentageOfWorld1(population) {
 
 // Object Methods
 
-const myCountry = {
-  country: "United States",
-  capital: "Washington D.C.",
-  language: "English",
-  population: 330,
-  neighbors: ['Mexico', 'Canada'],
-  describe: function() {
-    console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighboring countries and a capital called ${this.capital}. ${this.neighbors[1]} is one of the countries that borders it.`);
-  },
-  checkIsIsland: function () {
-    this.isIsland = (this.neighbors.length === 0) ? true : false;
-  },
-};
+// const myCountry = {
+//   country: "United States",
+//   capital: "Washington D.C.",
+//   language: "English",
+//   population: 330,
+//   neighbors: ['Mexico', 'Canada'],
+//   describe: function() {
+//     console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighboring countries and a capital called ${this.capital}. ${this.neighbors[1]} is one of the countries that borders it.`);
+//   },
+//   checkIsIsland: function () {
+//     this.isIsland = (this.neighbors.length === 0) ? true : false;
+//   },
+// };
 
-myCountry.describe();
-myCountry.checkIsIsland();
-console.log(myCountry);
+// myCountry.describe();
+// myCountry.checkIsIsland();
+// console.log(myCountry);
+
+/*----------------------------------------------------------------------------------*/
+
+// Iteration: The for loop
+
+// for (let i = 1; i <= 50; i++) {
+//   console.log(`Voter #${i} is currently voting`);
+// }
+
+/*----------------------------------------------------------------------------------*/
+
+// Looping Arrays, Breaking and Continuing
+// function percentageOfWorld1(population) {
+//   return (population / 7900) * 100;
+// }
+// const populations = [330, 1402, 126, 24];
+
+// const percentages2 = [];
+
+// for (let pop of populations) {
+//   percentages2.push(percentageOfWorld1(pop));
+// }
+
+// console.log(percentages2);
+
+// Both percentages and percentages2 are the same:
+// [4.177215189873418, 17.746835443037977, 1.5949367088607596, 0.3037974683544304]
+
+/*----------------------------------------------------------------------------------*/
+
+// Looping Backwards and Loops in Loops
+
+const listOfNeighbors = [
+  ['Canada', 'Mexico'], 
+  ['Spain'], 
+  ['Norway', 'Sweden', 'Russia']
+];
+
+for (let neighbors of listOfNeighbors) {
+  for (let country of neighbors) {
+    console.log(`Neighbor: ${country}`);
+  }
+}
+
+/*----------------------------------------------------------------------------------*/
+
+// The while loop
+
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+const populations = [330, 1402, 126, 24];
+
+const percentages3 = [];
+
+let i = 0;
+while (i < populations.length) {
+  percentages3.push(percentageOfWorld1(populations[i]));
+  i++;
+}
+
+console.log(percentages3);
