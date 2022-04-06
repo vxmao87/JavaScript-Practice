@@ -83,24 +83,46 @@ function percentageOfWorld1(population) {
 
 // Introduction to Objects
 
+// const myCountry = {
+//   country: "United States",
+//   capital: "Washington D.C.",
+//   language: "English",
+//   population: 330,
+//   neighbors: ['Mexico', 'Canada'],
+// };
+// console.log(myCountry);
+
+/*----------------------------------------------------------------------------------*/
+
+// Dot vs. Bracket Notation
+
+// const info = `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}. ${myCountry.neighbors[1]} is one of the countries that borders it.`;
+// console.log(info);
+
+// myCountry.population -= 2;
+// console.log(myCountry.population);
+
+// myCountry["population"] += 2;
+// console.log(myCountry["population"]);
+
+/*----------------------------------------------------------------------------------*/
+
+// Object Methods
+
 const myCountry = {
   country: "United States",
   capital: "Washington D.C.",
   language: "English",
   population: 330,
   neighbors: ['Mexico', 'Canada'],
+  describe: function() {
+    console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighboring countries and a capital called ${this.capital}. ${this.neighbors[1]} is one of the countries that borders it.`);
+  },
+  checkIsIsland: function () {
+    this.isIsland = (this.neighbors.length === 0) ? true : false;
+  },
 };
+
+myCountry.describe();
+myCountry.checkIsIsland();
 console.log(myCountry);
-
-/*----------------------------------------------------------------------------------*/
-
-// Dot vs. Bracket Notation
-
-const info = `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}. ${myCountry.neighbors[1]} is one of the countries that borders it.`;
-console.log(info);
-
-myCountry.population -= 2;
-console.log(myCountry.population);
-
-myCountry["population"] += 2;
-console.log(myCountry["population"]);

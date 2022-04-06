@@ -192,27 +192,27 @@ Arrays are for ordered data and Objects are for unstructured data.
 
 */
 
-// JavaScript Array
-const jonasArray = [
-  'Jonas',
-  'Schneider',
-  2037 - 1991,
-  'teacher',
-  ['Michael', 'Peter', 'Steven']
-];
+// // JavaScript Array
+// const jonasArray = [
+//   'Jonas',
+//   'Schneider',
+//   2037 - 1991,
+//   'teacher',
+//   ['Michael', 'Peter', 'Steven']
+// ];
 
-console.log(jonasArray);
+// console.log(jonasArray);
 
-// JavaScript Object
-const jonas = {
-  firstName: 'Jonas',
-  lastName: 'Schneider',
-  age: 2037 - 1991,
-  job: 'teacher',
-  friends: ['Michael', 'Peter', 'Steven'],
-};
+// // JavaScript Object
+// const jonas = {
+//   firstName: 'Jonas',
+//   lastName: 'Schneider',
+//   age: 2037 - 1991,
+//   job: 'teacher',
+//   friends: ['Michael', 'Peter', 'Steven'],
+// };
 
-console.log(jonas);
+// console.log(jonas);
 
 /*----------------------------------------------------------------------------------*/
 
@@ -226,20 +226,47 @@ Bracket notation is very versatile since you're putting in a String compared to 
 
 */
 
-// Dot Notation
-console.log(jonas.lastName);
+// // Dot Notation
+// console.log(jonas.lastName);
 
-// Bracket Notation
-console.log(jonas["lastName"]);
+// // Bracket Notation
+// console.log(jonas["lastName"]);
 
-// Any expression can be added inside for bracket notation.
-const nameKey = "Name";
-console.log(jonas['first' + nameKey]);
-console.log(jonas['last' + nameKey]);
+// // Any expression can be added inside for bracket notation.
+// const nameKey = "Name";
+// console.log(jonas['first' + nameKey]);
+// console.log(jonas['last' + nameKey]);
 
-// Will return undefined
-const interestedIn = prompt("What are you interested in? Choose firstName, lastName, age, job and friends.")
-console.log(jonas.interestedIn);
+// // Will return undefined
+// const interestedIn = prompt("What are you interested in? Choose firstName, lastName, age, job and friends.")
+// console.log(jonas.interestedIn);
 
-// This is correct
-console.log(jonas[interestedIn]);
+// // This is correct
+// console.log(jonas[interestedIn]);
+
+/*----------------------------------------------------------------------------------*/
+
+/*
+
+Object Methods
+
+Objects can even carry methods! And can be accessed in the same way! But keep in mind
+that only expressions work for Object values.
+
+*/
+
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Schneider',
+  birthYear: 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
+  calcAge: function () {
+    return 2037 - this.birthYear;
+  }
+};
+
+console.log(jonas.calcAge());
