@@ -69,6 +69,7 @@ function getAmplitude(tempList) {
   let lowest = temperatures[0];
   for (const temp of tempList) {
     if (temp !== 'error') {
+      // debugger;
       if (temp > highest) highest = temp;
       if (temp < lowest) lowest = temp;
     }
@@ -87,4 +88,30 @@ Debugging
 
 Identify, find, fix and prevent
 
+We have console.warn() and console.error() as well. There's also console.table().
+
+There would be a bug in the code below since 'prompt' always returns things as Strings.
+
+We can actually use a debugger in Chrome! Go to Sources, click on our script.js, then set a 
+breakpoint. Refresh the page, then you'll be able to step forward and backward to see what
+each variable is defined.
+
+We have an even bigger bug for the above code if for some reason the highest and lowest numbers
+are both 0 instead of temperatures[0].
+
+You can put the word 'debugger;' to also act as a debug method!
+
 */
+
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    value: Number(prompt('Degrees celsius')),
+  };
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+console.log(measureKelvin());
