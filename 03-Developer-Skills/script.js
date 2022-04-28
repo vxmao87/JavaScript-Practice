@@ -37,3 +37,54 @@ TODO Highlight
 // const calcAge = birthYear => 2037 - birthYear;
 
 /*-----------------------------------------------------------------------------------------*/
+
+/*
+
+Thinking Like a Developer
+
+4 Steps to Solving Any Problem:
+
+1. Make sure you 100% know what's expected of the problem. Ask the right questions to get an 
+   idea of the task at hand.
+2. Break up the problem into smaller, manageable chunks.
+3. Don't be afraid to do as much research as you need to.
+4. Write pseudo-code before the actual code for larger probles.
+
+*/
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*
+
+Using Google, Stack Overflow & MDN
+
+For the problem below we want to calculate the amplitude of the temperatures below.
+Using the 4-step approach above, it's best to write a function to capture the
+process in general.
+
+*/
+
+function getAmplitude(tempList) {
+  let highest = temperatures[0];
+  let lowest = temperatures[0];
+  for (const temp of tempList) {
+    if (temp !== 'error') {
+      if (temp > highest) highest = temp;
+      if (temp < lowest) lowest = temp;
+    }
+  }
+  return highest - lowest;
+}
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+console.log(getAmplitude(temperatures));
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*
+
+Debugging
+
+Identify, find, fix and prevent
+
+*/
