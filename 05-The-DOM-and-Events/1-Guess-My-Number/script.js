@@ -72,10 +72,9 @@ to a function too! These event handlers won't activate until the event occurs.
 */
 
 let score = 20;
-const secretNum = Number(Math.trunc(Math.random() * 20)) + 1;
+let highScore = 0;
+let secretNum = Number(Math.trunc(Math.random() * 20)) + 1;
 console.log(secretNum);
-
-document.querySelector(".number").textContent = secretNum;
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
@@ -84,8 +83,22 @@ document.querySelector(".check").addEventListener("click", function () {
   // Remember '0' is falsy, so this condition will run when guess = 0
   if (!guess) {
     console.log("Please type in a guess!");
+
+    // Player wins
   } else if (guess === secretNum) {
-    document.querySelector(".message").textContent = "🎉 Correct number!";
+    document.querySelector(".message").textContent =
+      "🎉 Correct number! You win!!!";
+    document.querySelector(".check").disabled = true;
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    document.querySelector(".number").style.width = "30rem";
+    document.querySelector(".number").textContent = secretNum;
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector(".highscore").textContent = highScore;
+    }
+
+    // Guess is too high
   } else if (guess > secretNum) {
     if (score > 1) {
       score--;
@@ -93,8 +106,11 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".score").textContent = 0;
-      document.querySelector(".message").textContent = "You lose!";
+      document.querySelector(".message").textContent = "Sorry, you lose!";
+      document.querySelector(".check").disabled = true;
     }
+
+    // Guess is too low
   } else if (guess < secretNum) {
     if (score > 1) {
       score--;
@@ -102,7 +118,21 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".score").textContent = 0;
-      document.querySelector(".message").textContent = "You lose!";
+      document.querySelector(".message").textContent = "Sorry, you lose!";
+      document.querySelector(".check").disabled = true;
     }
   }
+});
+
+document.querySelector(".again").addEventListener("click", function () {
+  score = 20;
+  document.querySelector(".score").textContent = score;
+  secretNum = Number(Math.trunc(Math.random() * 20)) + 1;
+  console.log(secretNum);
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".guess").value = "";
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector(".check").disabled = false;
 });
