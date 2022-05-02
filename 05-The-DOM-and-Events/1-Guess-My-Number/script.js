@@ -71,14 +71,17 @@ to a function too! These event handlers won't activate until the event occurs.
 
 */
 
+// Sets up the current score, high score and secret number
 let score = 20;
 let highScore = 0;
 let secretNum = Number(Math.trunc(Math.random() * 20)) + 1;
 
+// Changes the text content of the message
 function changeMessage(message) {
   document.querySelector(".message").textContent = message;
 }
 
+// Event listener for the button that checks the player's guess
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
 
@@ -126,6 +129,8 @@ document.querySelector(".check").addEventListener("click", function () {
   // }
 });
 
+// Event listener that checks for a click on the "Again!" button. This will
+// reset the screen to its original state.
 document.querySelector(".again").addEventListener("click", function () {
   score = 20;
   document.querySelector(".score").textContent = score;
