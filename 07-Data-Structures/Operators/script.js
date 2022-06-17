@@ -720,3 +720,176 @@ Objects are the more "traditional" key/value store, and you can easily access va
 Maps have better performance, its keys can have ANY data type, and they are easy to iterate over and compute the size of. So use them when you need to map keys to values or when you need keys that are NOT only Strings.
 
 */
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*
+
+Working with Strings
+
+Even with all of these operations, strings are primitive so they are also immutable.
+
+However, strings have methods on them, so a process called 'boxing' occurs when you call a method on them. Basically, JavaScript will convert the string from a primitive into an Object, and apply the method to that Object. The Object gets converted to a regular primitive once finished.
+
+*/
+
+const airline = "EVA Air China";
+const plane = "A320";
+
+// Get the letter of a string at a position
+console.log(plane[0]);
+console.log("B737"[0]);
+
+// Get the length of a string
+console.log(airline.length);
+console.log("extraordinary".length);
+
+// Obtain the index of the first occurrence of a letter
+console.log(airline.indexOf("A"));
+console.log(airline.lastIndexOf("A"));
+console.log(airline.indexOf("EVA"));
+console.log(airline.indexOf("EvA"));
+
+// Slices the string - can add another number (exclusive)
+console.log(airline.slice(4));
+console.log(airline.slice(4, 9));
+
+// Extract the first word in the airline
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+console.log(airline.slice(-2));
+
+// Check if a seat is a middle seat.
+const checkMiddleSeat = function (seat) {
+  // B and E are the middle seats.
+  const s = seat.slice(-1);
+  if (s === "B" || s === "E") {
+    console.log("You got the middle seat :P :P :P");
+  } else {
+    console.log("You got lucky this time!");
+  }
+};
+
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+console.log(new String("Jonas"));
+console.log(typeof new String("Jonas"));
+console.log(typeof new String("Jonas").slice(1));
+
+// Change the case of strings.
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log("exciting".toUpperCase());
+
+// Fix capitalization in a name
+const passenger = "jOnAs"; // Should be "Jonas"
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passenger[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Compare email input
+const email = "hello@jonas.io";
+const loginEmail = "  Hello@Jonas.Io \n";
+const emailLower = loginEmail.toLowerCase();
+
+// Remove trailing spaces and indents
+const trimmedEmail = emailLower.trim();
+console.log(trimmedEmail);
+
+// Condensed version of above code
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// Replacing with strings
+const priceCN = "5000R";
+const priceUS = priceCN.replace("R", "$");
+console.log(priceUS);
+
+const announcement =
+  "All passengers come to boarding door 23. Boarding door 23.";
+console.log(announcement.replaceAll("door", "gate"));
+
+// // Using a regular expression to replicate 'replaceAll' method before ES2019
+// console.log(announcement.replaceAll(/door/g, "gate"));
+
+// Booleans
+const bestPlane = "A320neo";
+console.log(bestPlane.includes("A320"));
+console.log(bestPlane.includes("Boeing"));
+console.log(bestPlane.startsWith("A320"));
+console.log(bestPlane.startsWith("A321"));
+console.log(bestPlane.endsWith("neo"));
+console.log(bestPlane.endsWith("reo"));
+
+// Practice exercise
+const checkBaggage = function (items) {
+  // Convert everything to lowercase first!!!
+  const baggage = items.toLowerCase();
+  if (baggage.includes("knife") || baggage.includes("gun")) {
+    console.log("You are not allowed on board.");
+  } else {
+    console.log("Welcome aboard!");
+  }
+};
+
+checkBaggage("I have a laptop, some Food and a pocket Knife.");
+checkBaggage("Socks and camera");
+checkBaggage("Got some snacks and a gun for protection");
+
+// Splitting strings
+// The string will be split up by the parameter inside the function, and returns an array of elements after being split by the value.
+console.log("a+very+nice+string".split("+"));
+const [firstName, lastName] = "Kevin Nguyen".split(" ");
+console.log(firstName, lastName);
+
+// Joining strings
+// The string will be joined using the parameter specified. This is basically the opposite of 'split'.
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(" ");
+  const namesUpper = [];
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(" "));
+};
+
+capitalizeName("jessica ann smith davis");
+
+// Padding strings
+const messageNew = "Go to gate 23!";
+
+// Length of entire string is now 25 after adding all the + signs
+console.log(messageNew.padStart(25, "+").padEnd(35, "+"));
+console.log("Vincent".padStart(25, "+").padEnd(35, "+"));
+
+// Real-world example: masking credit card numbers
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(123456729293804));
+console.log(maskCreditCard("56383293749402"));
+
+// Repeat method for strings
+// Parameter is the number of times to repeat the string.
+const message2 = "Bad weather... all departures delayed...";
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${"🛩".repeat(n)}`);
+};
+
+planesInLine(15);
+planesInLine(3);
