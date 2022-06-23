@@ -172,6 +172,131 @@ greetArrow("Hi")("Luke");
 
 /*-----------------------------------------------------------------------------------------*/
 
+/*
+
+The "call" and "apply" Methods
+
+Using the "call" method allows us to explicitly set the "this" keyword you want to refer to. All other parameters are as they are.
+
+Using the "apply" method is like the "call" method but it takes an array of the arguments instead.
+
+We're defining what the "this" keyword refers to for both "call" and "apply" methods.
+
+*/
+
+const evaAir = {
+  airline: "Eva Air",
+  iataCode: "BR",
+  bookings: [],
+  book(flightNumber, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNumber}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNumber}`, name });
+  },
+};
+
+evaAir.book(239, "Vincent Nguyen");
+evaAir.book(999, "Jacky Nguyen");
+
+const euroWings = {
+  airline: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = evaAir.book;
+
+// // Does not work
+// book(23, "Sarah Williams");
+
+// Using the "call" method!
+book.call(euroWings, 23, "Sarah Williams");
+book.call(evaAir, 888, "Raymond Chan");
+console.log(evaAir);
+console.log(euroWings);
+
+const swiss = {
+  airline: "Swiss",
+  iataCode: "LX",
+  bookings: [],
+};
+
+book.call(swiss, 583, "Gary Lee");
+console.log(swiss);
+
+// Using the "apply" method - not used very often
+const flightData = [289, "Alex Deng"];
+// book.apply(swiss, flightData);
+
+// This is a better method than the commented out method above
+book.call(swiss, ...flightData);
+
+console.log(swiss);
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*
+
+The "bind" Method
+
+We can define the "this" keyword and what it refers to with this method like "call" and "apply" but it instead returns a new function where the "this" keyword is bound.
+
+But for event handler functions, the "this" handler points to the element iin which the handler is attached to.
+
+*/
+
+// This will NOT call the "book" function but will instead return a new function where the "this" keyword will always be set to "eurowings".
+const bookEW = book.bind(euroWings);
+const bookBR = book.bind(evaAir);
+const bookLX = book.bind(swiss);
+
+bookEW(23, "Steven Lee");
+
+const bookEW23 = book.bind(euroWings, 23);
+bookEW23("Vincent Nguyen");
+bookEW23("Chris Chu");
+
+// With event listeners
+evaAir.planes = 300;
+evaAir.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+// // The "this" keyword points to the button element... :(
+// // The "this" keyword is set dynamically
+// document.querySelector(".buy").addEventListener("click", evaAir.buyPlane);
+
+// We cannot call the function, so we must use bind which will return a new function.
+document
+  .querySelector(".buy")
+  .addEventListener("click", evaAir.buyPlane.bind(evaAir));
+
+// Partial applications
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+// addVAT = value => value + value * 0.23
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+// Another way to do some of the code above
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
+
+/*-----------------------------------------------------------------------------------------*/
+
 /*-----------------------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------------------*/
