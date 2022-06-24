@@ -8,24 +8,26 @@ const poll = {
   options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
   // This generates [0, 0, 0, 0]. More in the next section!
   answers: new Array(4).fill(0),
-};
-
-// #3
-const displayResults = function (answers, type = "array") {
-  console.log(type === "array" ? answers : `Poll results are`);
-};
-
-// #1
-poll.registerNewAnswer = function () {
-  const userNum = Number(
-    prompt(`${this.question}\n${[...this.options].join("\n")}`)
-  );
-  if (userNum >= 0 && userNum < this.answers.length) {
-    this.answers[userNum]++;
-  } else {
-    alert("Invalid answer, try again!");
-  }
-  displayResults(this.answers);
+  // #1
+  registerNewAnswer: function () {
+    const userNum = Number(
+      prompt(`${this.question}\n${[...this.options].join("\n")}`)
+    );
+    typeof userNum === "number" &&
+      userNum >= 0 &&
+      userNum < this.answers.length &&
+      this.answers[userNum]++;
+    this.displayResults();
+    this.displayResults("string");
+  },
+  // #3
+  displayResults: function (type = "array") {
+    console.log(
+      type === "array"
+        ? this.answers
+        : `Poll results are ${this.answers.join(", ")}`
+    );
+  },
 };
 
 // #2
@@ -34,5 +36,8 @@ document
   .addEventListener("click", poll.registerNewAnswer.bind(poll));
 
 // Bonus
-displayResults(testData1);
-displayResults(testData2);
+// We use "call" to set the 'this' keyword to a new object instead of the one given above.
+poll.displayResults.call({ answers: testData1 });
+poll.displayResults.call({ answers: testData1 }, "string");
+poll.displayResults.call({ answers: testData2 });
+poll.displayResults.call({ answers: testData2 }, "string");

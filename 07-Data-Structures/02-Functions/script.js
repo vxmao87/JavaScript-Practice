@@ -297,6 +297,155 @@ console.log(addVAT2(23));
 
 /*-----------------------------------------------------------------------------------------*/
 
+/*
+
+Immediately Invoked Function Expressions (IIFEs)
+
+This is a function that disappears after calling it once.
+
+This allows for data encapsulation, and this is important since we don't want data to be accessible and overwritten by accident. You should hide variables, and scopes are perfect for this, so IIFEs are perfect for this.
+
+*/
+
+const runOnce = function () {
+  console.log("This will never run again.");
+};
+
+runOnce();
+
+// We make this unnamed function into an expression by enclosing it inside parentheses
+// Then we add () at the end to immediately invoke it (IIFE)
+(function () {
+  console.log("This will never run again.");
+  const isPrivate = 23;
+})();
+
+// // Is undefined because scope does not have access to private info inside an IIFE
+// console.log(isPrivate);
+
+// This will also never run again and is another way to write an immediately invoked expression
+(() => console.log("This will never run again."))();
+
+// Creating a block also creates a scope!
+{
+  const isPrivate = 50;
+  var notprivate = 25;
+}
+
+// // Is undefined because scope does not have access to private info inside an object
+// console.log(isPrivate);
+
+// But you can access var anywhere
+console.log(notprivate);
+
 /*-----------------------------------------------------------------------------------------*/
+
+/*
+
+Closures
+
+This isn't an explicitly made feature, like an array. It happens automatically in certain circumstances.
+
+We're just applying everything about the scope chain right now.
+
+The closure makes a function remember all variables it existed at the function's birthplace.
+
+The execution context for secureBooking is gone after it runs. Te booker method is in the global context now but how does the booker function access the passengerCount variable? 
+
+Any function always has access to the variable environment of the execution context in which the function was created, even after that execution context is gone. Booker was born in the execution context of secureBooking, which was popped off the call stack previously. So the booker function gets access to the passengerCount variable.
+
+Therefore a closure is the variable environment attached to the function exactly as it was at the time and place the function was created.
+
+The fact that passengerCount is now part of the scope chain of the booker() function is the closure! But it's basically because the booker function has access to the passengerCount variable since it was defined in the scope of the function it's referring to. The scope chain is preserved through the closure even if the scope has been destroyed.
+
+Formal closure definition:
+A closure is the closed-over variable environment of the execution context in which a function was created, even after that execution context is gone.
+
+Informal:
+A closure gives a function access to all the variables of its parent function even after that parent function has returned. The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+
+Analogy:
+A closure makes sure that a function does't lose its connections to variables that existed at the function's birthplace.
+
+Better:
+A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created.
+
+We don't need to create closures manually, JavaScript does this automatically. We can't even access closed-over variables explicitly, and a closure is NOT a tangible JavaScript object.
+
+*/
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  // The 'secureBooking function is done running once we hit this return function
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+// Shows the contents of the given function. You can check the closure of the function here.
+console.dir(booker);
+
+// The booker function exists in its scope and still has access to the variables.
+
+// Example 1
+// The 'f' variable was defined in the global scope but assigned a value in the g function. So this f function can access the 'a' variable even after the 'g' function has ended its call.
+let f;
+const g = function () {
+  const a = 25;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f();
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+// The closure has the value of 'a'.
+console.dir(f);
+
+// Reassigning the f function
+h();
+f();
+
+// The closure has the value of 'b' instead of 'a' after reassigning.
+// Closures always make sure that a function never loses the connection to the variables present at its birthplace; it'll always remember them.
+console.dir(f);
+
+// Example 2
+// Closures include all defined variables and the parameters from its parent function.
+const boardPassengers = function (n, wait) {
+  // This variable is set before setTimeout
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  // This runs before setTimeout
+  console.log(`Will start boarding in ${wait} seconds.`);
+};
+
+// Closures have priority over the scope chain. If the below line was enabled and the one above disabled, the below line will run instead.
+// const perGroup = 1000;
+boardPassengers(180, 3);
 
 /*-----------------------------------------------------------------------------------------*/
